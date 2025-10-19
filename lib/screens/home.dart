@@ -473,13 +473,13 @@ class _TaskListItem extends StatelessWidget {
           ),
           activeColor: Colors.green,
         ),
-        title:             Row(
-              children: [
-                Icon(
-                  task.priority.icon,
-                  size: 18,
-                  color: borderColor,
-                ),
+        title: Row(
+          children: [
+            Icon(
+              task.priority.icon,
+              size: 18,
+              color: borderColor,
+            ),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
@@ -519,36 +519,49 @@ class _TaskListItem extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 8),
-            Row(
+            Wrap(
               children: [
-                Icon(
-                  Icons.access_time,
-                  size: 14,
-                  color: Colors.grey[400],
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  'Created ${_formatDate(task.createdAt)}',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey[500],
-                  ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.access_time,
+                      size: 14,
+                      color: Colors.grey[400],
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      'Created ${_formatDate(task.createdAt)}',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey[500],
+                      ),
+                    ),
+                  ],
                 ),
                 if (task.dueDate != null) ...[
                   const SizedBox(width: 12),
-                  Icon(
-                    task.isOverdue ? Icons.warning : Icons.schedule,
-                    size: 14,
-                    color: task.isOverdue ? Colors.red : Colors.blue,
-                  ),
-                  const SizedBox(width: 4),
-                  Text(
-                    task.dueDateFormatted,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: task.isOverdue ? Colors.red : Colors.blue,
-                      fontWeight: task.isDueToday || task.isOverdue ? FontWeight.bold : FontWeight.normal,
-                    ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        task.isOverdue ? Icons.warning : Icons.schedule,
+                        size: 14,
+                        color: task.isOverdue ? Colors.red : Colors.blue,
+                      ),
+                      const SizedBox(width: 4),
+                      Flexible(
+                        child: Text(
+                          task.dueDateFormatted,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: task.isOverdue ? Colors.red : Colors.blue,
+                            fontWeight: task.isDueToday || task.isOverdue ? FontWeight.bold : FontWeight.normal,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
                 if (task.hasReminder) ...[
