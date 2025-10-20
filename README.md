@@ -39,16 +39,16 @@ flutter run
 ## 📱 App Screenshots
 
 ### Home Screen
-  ![home_screen](image.png)
+<img src="image.png" alt="home_screen" width="300"/>
 
 ### Add Task Screen
-![add_task](image-1.png)
+<img src="image-1.png" alt="add_task" width="300"/>
 
 ### Task Details Screen
-![task_details](image-2.png)
+<img src="image-2.png" alt="task_details" width="300"/>
 
 ### Edit Task Screen
-![edit_task](image-3.png)
+<img src="image-3.png" alt="edit_task" width="300"/>
 
 
 ## 🎓 Skills Demonstrated
